@@ -34,19 +34,26 @@ For Sort, we are asking for the Big $O$ for taking the current data structure an
 Since the worst case can change considerably based on what sort you use for sorting (if any), list each algorithm below, and specify the algorithm used in your assumption.  For BST, write which  method of traversal you would use to sort it.  
 
 * Vector
+   * Merge sort would bring the average time complexity and the worst case to $O(\log n)$, while Quick Sort is $O(n \log n)$ on average but has a $O(n^2)$ worst case. 
 * Single Linked List
+   * Merge Sort is the most efficient sorting algorithm for linked lists.  It does not rely on random access and has    an $O(n \log n)$ complexity.
 * Double Linked List
+   * Merge Sort is the most efficient sorting algorithm for linked lists.  It does not rely on random access and has    an $O(n \log n)$ complexity.   
 * Sorted Vector - already sorted
+   * The time complexity is $O(n)$ for iterating through the $n$ items to copy them.  
 * Sorted Single Linked List - already sorted
+   * The time complexity is $O(n)$ for iterating through the $n$ items to copy them.  
 * Sorted Double Linked List - already sorted
-* Binary Search Tree 
+   * The time complexity is $O(n)$ for iterating through the $n$ items to copy them.  
+* Binary Search Tree
+   *  In BST, we can use In-Order Traversal to iterate through the tree. BST will visit every node in its correctly    sorted order. BST will visit every node in its correctly sorted order.
 
 ### Worst Case vs. Average Case
 
 There are a few functions whose worse case is very different than the average case. Name at least two of them, and explain why the worse case is so much worse than the average case. 
 
-1. 
-2. 
+1. vector_add_back, Average Case: $O(1)$, the Worst Case is $O(n)$. In most situations, adding an element to the back of a vector is extremely fast. The function just places the new item at vector->movies[vector->size] and increments the size. This is a single $O(1)$ operation. The worst case happens only when the vector is full (when size == capacity). When this occurs, A new, larger block of memory must be allocated, and all $n$ existing elements must be copied from the old memory block to the new one, and the old memory block will be freed. 
+2. bst_find. The Average Case is $O(\log n)$ and the Worst Case is $O(n)$. When the tree is balanced, every comparison allows you to discard roughly half of the remaining nodes. This brings the average time complexity to $O(\log n)$ while the worst case occurs when the tree becomes unbalanced. If the tree only has left/right branch, in this situation, the tree is more similar to a linked list and the time complexity of this is $O(n)$. 
 
 ## Empirical Analysis - Speed Comparison
 
