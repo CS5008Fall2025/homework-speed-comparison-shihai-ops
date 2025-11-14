@@ -122,27 +122,27 @@ For example:
 ```
 
 1. What is the most surprising result from the data? Why is it surprising?
-
+  I think the biggest surprise result from the data is that Vector Add Front is consistently faster than LinkedList Remove Back. Both big O time complexity are at $O(n^2)$, but when data set goes bigger, the time it consumes differes a lot(Linked List remove back consumes almost double amount of time that Linked List add front consumes. ) Despite having the same big O complexity.
 2. What data structure is the fast at adding elements (sorted)? Why do you think that is?
-
+  The Binary Search Tree is the fastest. This is because the total cost to add $N$ items to a balanced BST is $O(n \log n)$ (since each add operation is $O(\log n)$ on average). In contrast, both SortedVector and SortedList take $O(n^2)$ of time complexity. It needs $O(n)$ to find the right place to insert with a for loop and call __shift_right function on average of n times to move all elements to the right of the insertion point.
 3. What data structure is the fastest at removing elements (sorted)? Why do you think that is?
-
+  It is also the BST total cost to remove $N$ items to a balanced BST is $O(n \log n)$. The reason is the same as the last question. Both SortedVector and SortedList take $O(n^2)$ of time complexity. It needs $O(n)$ to find the right place to delete with a for loop and call __shift_left function on average of n times to move all elements to the left after deletion of the delete point.
 4. What data structure is the fastest at searching? Why do you think that is?
-
+  The SortedVector and BST are fastest, and both are dramatically faster than the LinkedList. This is because SortedVector uses a binary search ($O(\log n)$) and the BST uses a tree traversal (average $O(\log n)$), but the linked list must iterate through nodes one by one to search. 
 5. What data structure is the fastest for adding elements to the front? Why do you think that is?
-
+  The LinkedList is the fastest. ll_add_front creates one new node and updates the head pointer. Its time complexity is $O(1)$. In comparison, to add an element to a vector, we need to move every single existing element to make space which brings the time complexity to O(n). 
 6. What data structure is the fastest for adding elements to the back? Why do you think that is?
-
+  Both LinkedList and Vector have time complexity of $O(1)$. They basically have the same time complexity but if the vector does not have enough space to store the new data, it has to create a new vector so the fastest data structure for all cases is the linked list. 
 7. What data structure is the fastest for removing elements from the front? Why do you think that is?
-
+  The LinkedList is the fastest. ll_remove_front is a $O(1)$ operation; it just advances the head pointer to the next node. while the vector must move every node forward by 1, making the time complexity to $o(n)$.
 8. What data structure is the fastest for removing elements from the back? Why do you think that is?
-
+  The vector is fastest in this case. The time complexity is $O(1)$. While the single linked list is $O(n) in this case, since it must traverse the entire list from the head just to find the second-to-last node.
 ### Deeper Thinking
 
 #### Double Linked List vs Single Linked List
 
 1. If you wrote your linked list as a single linked list, removing from the back was expensive. If you wrote it as a double linked list, removing from the back was cheap. Why do you think that is?
-
+The single-linked list must traverse the entire list from the head just to find the second-to-last node. For the double-linked list, it would have a previous pointer. It can be removed from the back by updating the previous pointer, making the time complexity to $O(1)$. 
 2. When running most functions, at least ~30% of the tests were worse case scenarios. Why do you think that is? 
 
 3. What was done in the code to encourage that? 
@@ -163,8 +163,8 @@ Fill out the table below. This is a common technical interview topic!
 
 | Structure          | Good to use when                                                                 | Bad to use when                                                                  |
 | ------------------ | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| Vector             |                                                                                  |                                                                                  |
-| Linked List        | Good for stacks with frequent front only access                                  |                                                                                  |
+| Vector             | Data size is known or changes infrequently and needs fast random access.         | Need frequent insertions or deletions near the front or middle of the sequence.  |
+| Linked List        | Good for stacks with frequent front only access                                  |     When we need frequent random access                                          |
 | Sorted Vector      | When values coming in are already mostly sorted and we need quick search access. | When space is limited and the dataset is extremely large causing memory to swap. |
 | Sorted Linked List |                                                                                  |                                                                                  |
 | BST                |                                                                                  | data is presorted                                                                |
