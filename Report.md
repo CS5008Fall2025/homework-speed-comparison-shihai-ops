@@ -95,18 +95,19 @@ Create *at least three* graphics that each visually explain an aspect of your da
 
 #### Graphic 1 (Replace with a descriptive title)
 
-> Insert your comments/observations about the graphic here
-> ![Add_to_front.png](Add_to_front.png)
+> Time complexity comparison of search.
+> ![search.png](search.png)
+
 
 #### Graphic 2 (Replace with a descriptive title)
 
-> Insert your comments/observations about the graphic here
-> ![Remove_back.png](Remove_back.png)
+> Time complexity comparison of add front.
+> ![Add_to_front.png](Add_to_front.png)
 
 #### Graphic 3 (Replace with a descriptive title)
 
-> Insert your comments/observations about the graphic here
-![search.png](search.png)
+> Time complexity comparison of remove back
+> ![Remove_back.png](Remove_back.png)
 ## Critical Thought
 
 ### Data Evaluation
