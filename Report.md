@@ -96,15 +96,17 @@ Create *at least three* graphics that each visually explain an aspect of your da
 #### Graphic 1 (Replace with a descriptive title)
 
 > Insert your comments/observations about the graphic here
+> ![Add_to_front.png](Add_to_front.png)
 
 #### Graphic 2 (Replace with a descriptive title)
 
 > Insert your comments/observations about the graphic here
+> ![Remove_back.png](Remove_back.png)
 
 #### Graphic 3 (Replace with a descriptive title)
 
 > Insert your comments/observations about the graphic here
-
+![search.png](search.png)
 ## Critical Thought
 
 ### Data Evaluation
