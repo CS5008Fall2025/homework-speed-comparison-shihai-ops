@@ -64,6 +64,7 @@ For this section, you will need to have run the speed compare program and genera
 Add a link from this document to the CSV file you generated. The CSV file must have at least 15 different N values, but
 often can have a lot more depending on what you ran.  
 
+[https://github.com/shihai-ops/homework-speed-comparison-shihai-ops/blob/main/results_10k.csv](results_10k.csv)
 ### Analysis
 
 Create *at least three* graphics that each visually explain an aspect of your data related to an operation or data structure. Under each one, explain what the graphic is showing, and what you can conclude from it/what you find interesting about it.
