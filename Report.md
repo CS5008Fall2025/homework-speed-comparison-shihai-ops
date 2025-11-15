@@ -190,6 +190,7 @@ For another 30%, this check is disabled. The function picks a random movie from 
 
   Self-balancing Binary Search Trees, such as AVL Trees and Red-Black Trees, are good in this situation. Take AVL tree as an example, if a well-sorted BST tree formed 
   e.g:
+  
   1  (Height: 2)
   
    \
@@ -201,6 +202,7 @@ For another 30%, this check is disabled. The function picks a random movie from 
       3 (Height: 0)
       
 The tree would count the left side of 1(Empty) with Height -1 and B with height 1, and the difference is 2 with violates the AVL role. The tree sees this imbalance at node "A" and performs left rotation and make the tree be balanced again.
+
      2  (Height: 1)
      
     / \
