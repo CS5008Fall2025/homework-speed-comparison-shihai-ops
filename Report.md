@@ -160,15 +160,15 @@ For example:
 
 1. If you wrote your linked list as a single linked list, removing from the back was expensive. If you wrote it as a double linked list, removing from the back was cheap. Why do you think that is?
 
-  The single-linked list must traverse the entire list from the head just to find the second-to-last node. For the double-linked list, it would have a previous pointer. It can be removed from the back by updating the previous pointer, making the time complexity to $O(1)$. 
+    The single-linked list must traverse the entire list from the head just to find the second-to-last node. For the double-linked list, it would have a previous pointer. It can be removed from the back by updating the previous pointer, making the time complexity to $O(1)$. 
   
 2. When running most functions, at least ~30% of the tests were worse case scenarios. Why do you think that is? 
 
-  #define SAMPLE_SPLIT .7 in the test.h. This function is called by search_movies and remove_tests. In 70% scenario, the while loop will be executed and this while loop guarantees that the movie we pick exists in the test sample, while 30% are picked randomly from the whole dataset, which makes this part have big chance that is not in the current test data pool. 
+    #define SAMPLE_SPLIT .7 in the test.h. This function is called by search_movies and remove_tests. In 70% scenario, the while loop will be executed and this while loop guarantees that the movie we pick exists in the test sample, while 30% are picked randomly from the whole dataset, which makes this part have big chance that is not in the current test data pool. 
 
 3. What was done in the code to encourage that? 
 
-  For 70% cases, the function picks a random movie. If that movie's index is outside the range of movies currently in the data pool, it re-picks until it finds one that is inside the range.
+    For 70% cases, the function picks a random movie. If that movie's index is outside the range of movies currently in the data pool, it re-picks until it finds one that is inside the range.
 For another 30%, this check is disabled. The function picks a random movie from the entire 10,000 movie list, but only 500 of them are in the current data pool, hence it has very large chance that the movie cannot be found in the current data pool. Since it cannot be found in the data, the program will iterate over all data in the pool and make the worst case with time complexity O(n). 
 
 4. How did this particularly influence the linked list searches?
