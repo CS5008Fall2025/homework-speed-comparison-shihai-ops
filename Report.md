@@ -237,6 +237,13 @@ For both these questions, are you are free to use what you did as the last secti
 
 1. Select one technical interview question (this module or previous) from the [technical interview list](https://github.com/CS5008-khoury/Resources/blob/main/TechInterviewQuestions.md) below and answer it in a few sentences. You can use any resource you like to answer the question.
 
+  Discuss the differences of an array and a linked list. When would you want to use one over the other?
+
+  Array has Contiguous Memory. It stores all its elements in one single block of memory. Data in Array is stored next to each other. The pro is it is super fast to randomly access data in the array. The con is that is very slow to change or delete at the front. you must shift every other element one spot to the right. I will use an array if I need frequent random access data amd I would not use it if I need to add data at the front frequently.
+
+  Linkedlist stores its elements in separate nodes scattered all over memory. Each node holds one element and a pointer to the next node. It is very convenient to insert an element at the front but very slow to lookup nodes. It must go through all previous nodes. I would use LinkedList if I need to add data at the front frequently, and not use that if I need randomly access data frequently. 
+  
+  
 2. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
 
 ## References
