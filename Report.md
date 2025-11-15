@@ -244,7 +244,27 @@ For both these questions, are you are free to use what you did as the last secti
   Linkedlist stores its elements in separate nodes scattered all over memory. Each node holds one element and a pointer to the next node. It is very convenient to insert an element at the front but very slow to lookup nodes. It must go through all previous nodes. I would use LinkedList if I need to add data at the front frequently, and not use that if I need randomly access data frequently. 
   
   
-2. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
+2. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others.
+
+Reverse Linked List
+```C
+
+struct ListNode* reverseList(struct ListNode* head) {
+    struct ListNode *prev = NULL;  
+    struct ListNode *curr = head; //curr begins with original head
+
+    while (curr != NULL) {
+        struct ListNode *next = curr->next;  //Temporary store the original next
+        curr->next = prev; //inverse the pointer to prev
+        prev = curr;     
+        curr = next;
+    }
+
+    return prev;
+}
+
+
+```
 
 ## References
 
