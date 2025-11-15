@@ -153,25 +153,54 @@ of time complexity. It needs $O(n)$ to find the right place to insert with a for
 8. What data structure is the fastest for removing elements from the back? Why do you think that is?
 
   The vector is fastest in this case. The time complexity is $O(1)$. While the single linked list is $O(n) in this case, since it must traverse the entire list from the head just to find the second-to-last node.
+  
 ### Deeper Thinking
 
 #### Double Linked List vs Single Linked List
 
 1. If you wrote your linked list as a single linked list, removing from the back was expensive. If you wrote it as a double linked list, removing from the back was cheap. Why do you think that is?
-The single-linked list must traverse the entire list from the head just to find the second-to-last node. For the double-linked list, it would have a previous pointer. It can be removed from the back by updating the previous pointer, making the time complexity to $O(1)$. 
+
+  The single-linked list must traverse the entire list from the head just to find the second-to-last node. For the double-linked list, it would have a previous pointer. It can be removed from the back by updating the previous pointer, making the time complexity to $O(1)$. 
+  
 2. When running most functions, at least ~30% of the tests were worse case scenarios. Why do you think that is? 
+
+  #define SAMPLE_SPLIT .7 in the test.h. This function is called by search_movies and remove_tests. In 70% scenario, the while loop will be executed and this while loop guarantees that the movie we pick exists in the test sample, while 30% are picked randomly from the whole dataset, which makes this part have big chance that is not in the current test data pool. 
 
 3. What was done in the code to encourage that? 
 
+  For 70% cases, the function picks a random movie. If that movie's index is outside the range of movies currently in the data pool, it re-picks until it finds one that is inside the range.
+For another 30%, this check is disabled. The function picks a random movie from the entire 10,000 movie list, but only 500 of them are in the current data pool, hence it has very large chance that the movie cannot be found in the current data pool. Since it cannot be found in the data, the program will iterate over all data in the pool and make the worst case with time complexity O(n). 
+
 4. How did this particularly influence the linked list searches?
+
+   It increases the total amount of time consumed for algorithms that require iteration over datasets. The function picks a random movie from the entire 10,000 movie list, but only 500 of them are in the current data pool, hence it has very big chance that the movie cannot be found in the current data pool. Since it cannot be found in the data, the program will iterate over all data in the pool and make the worst case with time complexity O(n). LinkedList Search was forced to do the maximum possible work ($O(n)$) on every single one of those miss operations, and makes the runtime of Linkedlist search closer to the worst case. 
+
 
 #### Test Bias
 
 1. The tests were inherently biased towards the BST to perform better due the setup of the experiment. Explain why this is the case.  (hint: think about the randomization of the data, and the worst case scenario for BST).
 
+  This program uses a highly randomized data sample. It is the best-case scenario for BST. It naturally tends to create a balanced tree. It allows the BST to approach the best scenario $O(\log n)$ for add/search/remove. 
+  
 2. What would generate the worst case scenery for a BST?
 
+  The worst case of BST is well sorted-list. At this case, the tree would act like a sorted linked list. The time complexity of add/search/remove would be as same as a linked-list($O(n)$). 
+
 3. Researching beyond the module, how would one fix a BST so the worst case scenario matches (or at least i closer to) the average case.[^1^]
+
+  Self-balancing Binary Search Trees, such as AVL Trees and Red-Black Trees, are good in this situation. Take AVL tree as an example, if a well-sorted BST tree formed 
+  e.g:
+  1  (Height: 2)
+   \
+    2 (Height: 1)
+     \
+      3 (Height: 0)
+The tree would count the left side of 1(Empty) with Height -1 and B with height 1, and the difference is 2 with violates the AVL role. The tree sees this imbalance at node "A" and performs left rotation and make the tree be balanced again.
+     2  (Height: 1)
+    / \
+   /   \
+  1     3 (Height: 0)
+ (H: 0)
 
 ## Scenario
 
@@ -180,14 +209,19 @@ Fill out the table below. This is a common technical interview topic!
 | Structure          | Good to use when                                                                 | Bad to use when                                                                  |
 | ------------------ | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | Vector             | Data size is known or changes infrequently and needs fast random access.         | Need frequent insertions or deletions near the front or middle of the sequence.  |
-| Linked List        | Good for stacks with frequent front only access                                  |     When we need frequent random access                                          |
-| Sorted Vector      | When values coming in are already mostly sorted and we need quick search access. | When space is limited and the dataset is extremely large causing memory to swap. |
-| Sorted Linked List |                                                                                  |                                                                                  |
-| BST                |                                                                                  | data is presorted                                                                |
-
+| Linked List        | Good for stacks with frequent front only access                                  | When we need frequent random access                                              |
+| Sorted Vector      | When values coming in are already mostly sorted, or need quick search access.    | When space is limited and the dataset is extremely large causing memory to swap. |
+| Sorted Linked List | When we must keep data sorted with many insertions/deletions                     | When we need frequent random access                                              |
+| BST                | When we need fast search/insert/delete                                           | data is presorted                                                                |
+ 
 ## Conclusion
 
 Summarize your findings. Where there any surprises?  What did you end up learning by comparing speeds?
+  
+  Vector is best for Random access and add contents at the back(If there is enough storage left). The time complexity is $O(1)$ at this case. Vector is not good for insert/delete at Front/Middle as the time complexity is approaching to O(n).
+  (Single) Linked List is best for front insertions, with time complexity of $O(1). While it is worst for random access and back removals with time complexity of $O(n)$.
+  Binary search tree is best for an unsorted, balanced dataset. If the tree is balanced, the time complexity of adding, removing, and searching is $O(n \log n)$. If the data is presorted, it would be like a linked list with the time complexity of $O(n^2)$ for adding, removing, and searching. It surprised me because the tree works better when the dataset is not sorted. It is not intuitive. 
+  
 
 ## Technical Interview Practice Questions
 
