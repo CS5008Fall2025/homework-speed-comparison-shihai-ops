@@ -207,7 +207,7 @@ The tree would count the left side of 1(Empty) with Height -1 and B with height 
      
     / \
     
-  1     3 (Height: 0)
+  1         3 (Height: 0)
  (H: 0)
 
 ## Scenario
