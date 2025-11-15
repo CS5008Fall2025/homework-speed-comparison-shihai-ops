@@ -123,28 +123,28 @@ For example:
 
 1. What is the most surprising result from the data? Why is it surprising?
 
-  I think the biggest surprise result from the data is that Vector Add Front is consistently faster than LinkedList Remove Back. Both big O time complexity are at $O(n^2)$, but when data set goes bigger, the time it consumes differes a lot(Linked List remove back consumes almost double amount of time that Linked List add front consumes. ) Despite having the same big O complexity.
+  I think the biggest surprise result from the data is that Vector Add Front is consistently faster than LinkedList Remove Back. Both big O time complexity are at $O(n^2)$, but when data set goes bigger, the time it consumes differes a     lot(Linked List remove back consumes almost double amount of time that Linked List add front consumes. ) Despite having the same big O complexity.
 
 2. What data structure is the fast at adding elements (sorted)? Why do you think that is?
 
   The Binary Search Tree is the fastest. This is because the total cost to add $N$ items to a balanced BST is $O(n \log n)$ (since each add operation is $O(\log n)$ on average). In contrast, both SortedVector and SortedList take $O(n^2)$ 
-of time complexity. It needs $O(n)$ to find the right place to insert with a for loop and call __shift_right function on average of n times to move all elements to the right of the insertion point.
+  of time complexity. It needs $O(n)$ to find the right place to insert with a for loop and call __shift_right function on average of n times to move all elements to the right of the insertion point.
 
 3. What data structure is the fastest at removing elements (sorted)? Why do you think that is?
 
-  It is also the BST total cost to remove $N$ items to a balanced BST is $O(n \log n)$. The reason is the same as the last question. Both SortedVector and SortedList take $O(n^2)$ of time complexity. It needs $O(n)$ to find the right place to delete with a for loop and call __shift_left function on average of n times to move all elements to the left after deletion of the delete point.
+  It is also the BST total cost to remove $N$ items to a balanced BST is $O(n \log n)$. The reason is the same as the last question. Both SortedVector and SortedList take $O(n^2)$ of time complexity. It needs $O(n)$ to find the right       place to delete with a for loop and call __shift_left function on average of n times to move all elements to the left after deletion of the delete point.
 
 4. What data structure is the fastest at searching? Why do you think that is?
 
-  The SortedVector and BST are fastest, and both are dramatically faster than the LinkedList. This is because SortedVector uses a binary search ($O(\log n)$) and the BST uses a tree traversal (average $O(\log n)$), but the linked list must iterate through nodes one by one to search. 
+  The SortedVector and BST are fastest, and both are dramatically faster than the LinkedList. This is because SortedVector uses a binary search ($O(\log n)$) and the BST uses a tree traversal (average $O(\log n)$), but the linked list      must iterate through nodes one by one to search. 
 
 5. What data structure is the fastest for adding elements to the front? Why do you think that is?
 
-  The LinkedList is the fastest. ll_add_front creates one new node and updates the head pointer. Its time complexity is $O(1)$. In comparison, to add an element to a vector, we need to move every single existing element to make space, which brings the time complexity to O(n). 
+  The LinkedList is the fastest. ll_add_front creates one new node and updates the head pointer. Its time complexity is $O(1)$. In comparison, to add an element to a vector, we need to move every single existing element to make space,      which brings the time complexity to O(n). 
 
 6. What data structure is the fastest for adding elements to the back? Why do you think that is?
 
-  Both LinkedList and Vector have time complexity of $O(1)$. They basically have the same time complexity but if the vector does not have enough space to store the new data, it has to create a new vector so the fastest data structure for all cases is the linked list. 
+  Both LinkedList and Vector have time complexity of $O(1)$. They basically have the same time complexity but if the vector does not have enough space to store the new data, it has to create a new vector so the fastest data structure for   all cases is the linked list. 
 
 7. What data structure is the fastest for removing elements from the front? Why do you think that is?
 
